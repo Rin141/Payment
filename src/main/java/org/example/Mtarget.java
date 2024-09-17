@@ -24,23 +24,21 @@ public class Mtarget extends Login {
     private WebDriver driver;
 
 
-    private String getErrorMessage(WebElement field) {
-        try {
-            WebElement errorMessage = field.findElement(By.xpath("following-sibling::div[contains(@class, 'v-messages__message')]"));
-            return errorMessage.isDisplayed() ? errorMessage.getText() : "";
-        } catch (Exception e) {
-            return "";  // No error message found
-        }
-    }
+
 
     @Test
     public void information1() {
         setup();
         login();
-        List<WebElement> detailtab = driver.findElements(By.cssSelector(".v-btn.v-theme--SCREEN_MODE_LIGHT.v-btn--density-default.v-btn--size-default.v-btn--variant-flat.px-5.d-flex.align-center.text-capitalize.classification.bg-transparent"));get(4);
+//        List<WebElement> detailtab = driver.findElements(By.cssSelector(".v-btn.v-theme--SCREEN_MODE_LIGHT.v-btn--density-default.v-btn--size-default.v-btn--variant-flat.px-5.d-flex.align-center.text-capitalize.classification.bg-transparent"));
+//
+//// Lấy phần tử thứ 5 (vị trí chỉ số 4)
+//        WebElement Mtarget_detailtab = detailtab.get(4);
+//
+//        Mtarget_detailtab.click();
+//
+//        sleep(3000);
 
-        WebElement  Mtarget_detailtab = detailtab.get(4);
-        Mtarget_detailtab.click();
 
 
 

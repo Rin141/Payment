@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 
+import java.util.List;
+
 
 public class Login {
 
@@ -18,7 +20,7 @@ public class Login {
 
     public void login() {
         try {
-            chromeDriver.get("http://192.168.0.231:22003/invoice-calculation");
+            chromeDriver.get("http://14.241.235.67:3000/reception-status");
 //            chromeDriver.manage().window().maximize();
             sleep(1000);
 
@@ -36,40 +38,30 @@ public class Login {
             WebElement loginButton = chromeDriver.findElement(By.cssSelector(".v-btn.v-btn--flat.v-theme--SCREEN_MODE_LIGHT.bg-primary.v-btn--density-default.v-btn--size-default.v-btn--variant-elevated.width-100.rounded-3.font-weight-bold"));
             loginButton.click();
             sleep(500);
-            
+
+            //Use for app contract
+            WebElement MenuButton = chromeDriver.findElement(By.cssSelector(".v-btn.v-theme--SCREEN_MODE_LIGHT.v-btn--density-default.v-btn--size-default.v-btn--variant-flat.px-5.d-flex.align-center.btn-draw.bg-transparent.pb-1"));
+            MenuButton.click();
+            sleep(500);
+
+            WebElement PaymentButton = chromeDriver.findElement(By.cssSelector(".v-list-item.v-list-item--link.v-theme--SCREEN_MODE_LIGHT.v-list-item--density-default.v-list-item--one-line.v-list-item--variant-text.page-function-5"));
+         PaymentButton.click();
+            sleep(4000);
+
+            List<WebElement> detailtab = chromeDriver.findElements(By.cssSelector(".v-btn.v-theme--SCREEN_MODE_LIGHT.v-btn--density-default.v-btn--size-default.v-btn--variant-flat.px-5.d-flex.align-center.text-capitalize.classification.bg-transparent"));
+
+// Lấy phần tử thứ 5 (vị trí chỉ số 4)
+            WebElement Mtarget_detailtab = detailtab.get(3);
+
+            Mtarget_detailtab.click();
+
+            sleep(5000);
 
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
-//    protected WebDriver chromeDriver;
-//    WebDriverWait wait = new WebDriverWait(chromeDriver, Duration.ofSeconds(10));
-//    //    @BeforeMethod
-//    public void setup() {
-//        chromeDriver = new ChromeDriver();
-//    }
-//
-//    public void login() {
-//        try {
-//            chromeDriver.get("http://192.168.0.231:25002/invoice-calculation");
-//
-//            WebElement button1 = wait.until(ExpectedConditions.elementToBeClickable(By.className("classification")));
-//            button1.click();
-//
-//            WebElement inputacc = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@placeholder='アカウントID']")));
-//            inputacc.sendKeys("00005445");
-//
-//            WebElement inputpwd = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@placeholder='パスワード']")));
-//            inputpwd.click();
-//            inputpwd.sendKeys("itec@544");
-//
-//            WebElement loginButton = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".v-btn.v-btn--flat.v-theme--SCREEN_MODE_LIGHT.bg-primary.v-btn--density-default.v-btn--size-default.v-btn--variant-elevated.width-100.rounded-3.font-weight-bold")));
-//            loginButton.click();
-//
-//        } catch (Exception e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
+
 
     @AfterClass
     public void cleanup() {
