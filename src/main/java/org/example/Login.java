@@ -20,7 +20,8 @@ public class Login {
 
     public void login() {
         try {
-            chromeDriver.get("http://14.241.235.67:3000/reception-status");
+//            chromeDriver.get("http://192.168.0.231:22003/migration-target");
+            chromeDriver.get("http://192.168.0.231:25001/login");
 //            chromeDriver.manage().window().maximize();
             sleep(1000);
 
@@ -37,24 +38,21 @@ public class Login {
             sleep(1000);
             WebElement loginButton = chromeDriver.findElement(By.cssSelector(".v-btn.v-btn--flat.v-theme--SCREEN_MODE_LIGHT.bg-primary.v-btn--density-default.v-btn--size-default.v-btn--variant-elevated.width-100.rounded-3.font-weight-bold"));
             loginButton.click();
-            sleep(500);
+            sleep(2000);
 
-            //Use for app contract
+//            Use for app contract
             WebElement MenuButton = chromeDriver.findElement(By.cssSelector(".v-btn.v-theme--SCREEN_MODE_LIGHT.v-btn--density-default.v-btn--size-default.v-btn--variant-flat.px-5.d-flex.align-center.btn-draw.bg-transparent.pb-1"));
             MenuButton.click();
-            sleep(500);
+            sleep(1000);
 
-            WebElement PaymentButton = chromeDriver.findElement(By.cssSelector(".v-list-item.v-list-item--link.v-theme--SCREEN_MODE_LIGHT.v-list-item--density-default.v-list-item--one-line.v-list-item--variant-text.page-function-5"));
+            WebElement PaymentButton = chromeDriver.findElement(By.cssSelector(".v-list-item.v-list-item--link.v-theme--SCREEN_MODE_LIGHT.v-list-item--density-default.v-list-item--one-line.v-list-item--variant-text.page-function-4"));
          PaymentButton.click();
             sleep(4000);
 
+            //linked aggregate tab
             List<WebElement> detailtab = chromeDriver.findElements(By.cssSelector(".v-btn.v-theme--SCREEN_MODE_LIGHT.v-btn--density-default.v-btn--size-default.v-btn--variant-flat.px-5.d-flex.align-center.text-capitalize.classification.bg-transparent"));
-
-// Lấy phần tử thứ 5 (vị trí chỉ số 4)
             WebElement Mtarget_detailtab = detailtab.get(3);
-
             Mtarget_detailtab.click();
-
             sleep(5000);
 
         } catch (Exception e) {
