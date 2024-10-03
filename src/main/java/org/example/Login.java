@@ -20,9 +20,8 @@ public class Login {
 
     public void login() {
         try {
-//            chromeDriver.get("http://192.168.0.231:22003/migration-target");
-            chromeDriver.get("http://192.168.0.231:25001/login");
-//            chromeDriver.manage().window().maximize();
+            chromeDriver.get("http://192.168.0.231:22002/login");
+//            chromeDriver.get("http://192.168.0.231:25001/login");
             sleep(1000);
 
             WebElement button1 = chromeDriver.findElement(By.className("classification"));
@@ -47,13 +46,19 @@ public class Login {
 
             WebElement PaymentButton = chromeDriver.findElement(By.cssSelector(".v-list-item.v-list-item--link.v-theme--SCREEN_MODE_LIGHT.v-list-item--density-default.v-list-item--one-line.v-list-item--variant-text.page-function-4"));
          PaymentButton.click();
-            sleep(4000);
+            sleep(2000);
 
             //linked aggregate tab
+//            List<WebElement> detailtab = chromeDriver.findElements(By.cssSelector(".v-btn.v-theme--SCREEN_MODE_LIGHT.v-btn--density-default.v-btn--size-default.v-btn--variant-flat.px-5.d-flex.align-center.text-capitalize.classification.bg-transparent"));
+//            WebElement Mtarget_detailtab = detailtab.get(3);
+//            Mtarget_detailtab.click();
+//            sleep(3000);
+
+
             List<WebElement> detailtab = chromeDriver.findElements(By.cssSelector(".v-btn.v-theme--SCREEN_MODE_LIGHT.v-btn--density-default.v-btn--size-default.v-btn--variant-flat.px-5.d-flex.align-center.text-capitalize.classification.bg-transparent"));
-            WebElement Mtarget_detailtab = detailtab.get(3);
+            WebElement Mtarget_detailtab = detailtab.get(1);
             Mtarget_detailtab.click();
-            sleep(5000);
+            sleep(1000);
 
         } catch (Exception e) {
             throw new RuntimeException(e);
